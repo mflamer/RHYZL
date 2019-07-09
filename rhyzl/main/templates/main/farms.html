@@ -1,0 +1,9 @@
+{% if farm_list %}
+<ul>
+  {% for farm in farm_list %}
+  <li><a href="{% url 'main:farm' farm.name %}">{{ farm.name }}</a></li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>No farms exist.</p>
+{% endif %}

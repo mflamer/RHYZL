@@ -2,12 +2,16 @@ from django.shortcuts import render
 
 from django.http import HttpResponse
 
+from .models import Farm
+
 def index(request):
     return HttpResponse('INDEX STUB')
 
 def farms(request):
     # List of all farms
-    return HttpResponse('FARMS')
+    farm_list = Farm.objects.order_by('name')
+    context = {'farm_list': farm_list}
+    return render(request, 'main/farms.html', context)
 
 def farm(request, name):
     # Info about farm NAME
