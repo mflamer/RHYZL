@@ -9,38 +9,38 @@ def farms(request):
     # List of all farms
     return HttpResponse('FARMS')
 
-def farm(request, farm_id):
-    # Info about farm with FARM_ID
-    return HttpResponse('FARM ' + str(farm_id))
+def farm(request, name):
+    # Info about farm NAME
+    return HttpResponse('FARM ' + name)
 
-def farm_employees(request, farm_id):
-    # Employees at a farm with FARM_ID
-    return HttpResponse('FARM EMPLOYEES' + str(farm_id))
+def farm_employees(request, name):
+    # Employees at farm NAME
+    return HttpResponse('FARM EMPLOYEES' + name)
 
-def farm_plants(request, farm_id):
-    # Plants belonging to a FARM_ID
-    return HttpResponse('FARM PLANTS' + str(farm_id))
+def farm_plants(request, name):
+    # Plants belonging to farm NAME
+    return HttpResponse('FARM PLANTS' + name)
 
 def facilities(request):
     # List of all facilities
     return HttpResponse('FACILITIES')
 
-def facility(request, facility_id):
-    # Info about facility with FACILITY_ID
-    return HttpResponse('FACILITY_ID ' + str(facility_id))
+def facility(request, name):
+    # Info about facility NAME
+    return HttpResponse('NAME ' + str(name))
 
 def people(request):
     # List of all people
     return HttpResponse('PEOPLE')
 
-def person(request, person_id):
-    # Info about person with PERSON_ID
-    return HttpResponse('PERSON_ID ' + str(person_id))
+def person(request, user_name):
+    # Info about person with USER_NAME
+    return HttpResponse('USER_NAME ' + user_name)
 
 def strains(request):
     # List of all known strains
     return HttpResponse('STRAINS')
 
-def strain(request, strain_id):
+def strain(request, metric_id):
     # Info about strain with STRAIN_ID
-    return HttpResponse('STRAIN_ID ' + str(strain_id))
+    return HttpResponse('STRAIN_ID ' + str(metric_id))

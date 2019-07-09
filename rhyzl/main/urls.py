@@ -7,21 +7,21 @@ urlpatterns = [
 
     path('farms',
          views.farms, name='farms'),
-    path('farm/<int:farm_id>/',
+    path('farm/<str:name>/',
          views.farm, name='farm'),
-    path('farm/<int:farm_id>/employees',
+    path('farm/<str:name>/employees',
          views.farm_employees, name='farm_employees'),
-    path('farm/<int:farm_id>/plants',
+    path('farm/<str:name>/plants',
          views.farm_plants, name='farm_plants'),
 
     path('facilities',
          views.facilities, name='facilities'),
-    path('facility/<int:facility_id>/',
+    path('facility/<str:name>/',
          views.facility, name='facility'),
 
     path('people',
          views.people, name='people'),
-    path('person/<int:person_id>/',
+    path('person/<str:user_name>/',
          views.person, name='person'),
 
     path('strains',
