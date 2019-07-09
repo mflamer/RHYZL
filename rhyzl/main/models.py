@@ -2,11 +2,11 @@ from django.db.models import *
 from django.contrib.auth.models import User
 
 class Address(Model):
-    address_number = PositiveIntegerField()
-    address_street = CharField(max_length=32)
-    address_city = CharField(max_length=32)
-    address_state = CharField(max_length=32)
-    address_zip = PositiveIntegerField()
+    number = PositiveIntegerField()
+    street = CharField(max_length=32)
+    city = CharField(max_length=32)
+    state = CharField(max_length=32)
+    zip = PositiveIntegerField()
 
 class Person(Model):
     name_first = CharField(max_length=32)
