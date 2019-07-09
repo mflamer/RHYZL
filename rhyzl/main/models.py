@@ -9,10 +9,11 @@ class Address(Model):
     zip = PositiveIntegerField()
 
 class Person(Model):
+    user_name = CharField(max_length=32)
     name_first = CharField(max_length=32)
     name_last = CharField(max_length=32)
     email = EmailField()
-    address = ForeignKey(Address, on_delete=CASCADE)    
+    address = ForeignKey(Address, on_delete=CASCADE)
 
 class Employee(Person):
     hire_date = DateField()
@@ -23,9 +24,9 @@ class Strain(Model):
     name = CharField(max_length=32)
     thc_level = DecimalField(max_digits=4, decimal_places=4)
     cbd_level = DecimalField(max_digits=4, decimal_places=4)
-    
+
 class Plant(Model):
-    strain = ForeignKey(Strain, on_delete=CASCADE)      
+    strain = ForeignKey(Strain, on_delete=CASCADE)
     date_planted = DateField()
     date_harvested = DateField()
     weight_harvested = DecimalField(max_digits=5, decimal_places=2)
@@ -33,9 +34,7 @@ class Plant(Model):
 
 class Facility(Model):
     name = CharField(max_length=32)
-    address = ForeignKey(Address, on_delete=CASCADE)        
+    address = ForeignKey(Address, on_delete=CASCADE)
 
-class Farm(Facility):   
-    plants = ManyToManyField(Plant, blank=True) 
-
-    
+class Farm(Facility):
+    plants = ManyToManyField(Plant, blank=True)
