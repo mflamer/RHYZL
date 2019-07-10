@@ -41,7 +41,11 @@ def people(request):
 
 def person(request, user_name):
     # Info about person with USER_NAME
-    return HttpResponse('USER_NAME ' + user_name)
+    try:
+        person = Person.objects.get(user_name=user_name)
+    except Person.DoesNotExist:
+        raise Http404("Person does not exist")
+    return render(request, 'main/person.html', {'person': person})
 
 def strains(request):
     # List of all known strains
