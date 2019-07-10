@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 from django.http import HttpResponse
 
-from .models import Farm
+from .models import Farm, Person
 
 def index(request):
     return HttpResponse('INDEX STUB')
@@ -35,7 +35,9 @@ def facility(request, name):
 
 def people(request):
     # List of all people
-    return HttpResponse('PEOPLE')
+    people_list = Person.objects.order_by('user_name')
+    context = {'people_list': people_list}
+    return render(request, 'main/people.html', context)
 
 def person(request, user_name):
     # Info about person with USER_NAME
